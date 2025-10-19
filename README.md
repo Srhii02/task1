@@ -1,14 +1,10 @@
 # Task 1
 
-:globe_with_meridians: :rocket: [LIVE APP](http://3.18.207.40/)
-
-**NOTE:** [README First](/README.md)
-
 ### Requirements
 
 - Java
-- Maven
 - Spring Boot (Framework)
+- Maven
 - MongoDB
 - Docker
 
@@ -16,6 +12,7 @@
 
 - spring-boot-starter-web
 - spring-boot-starter-data-mongodb
+- spring-boot-starter-test
 - spring-boot-maven-plugin
 
 ## Building steps
@@ -31,21 +28,21 @@ Required jar file will be created inside `/target` folder.
 SpringBoot application server will load and start on port `8080` of the `localhost`.
 
 ## Rest  API Endpoints and Resources
-Rest API Endpoint is mapped to `http://127.0.0.1:8080/servers/`
+Rest API Endpoint is mapped to `http://127.0.0.1:8080/tasks/`
 
-- PUT a server	`http://127.0.0.1:8080/servers/createServer`
+- PUT a server	`http://127.0.0.1:8080/servers/`
 Accept "server" object in body in json format.
 
-- GET servers	`http://127.0.0.1:8080/servers/getServer`
+- GET servers	`http://127.0.0.1:8080/servers/GET`
 Returns a list of "server" objects.
 
-- GET server	by ID	`http://127.0.0.1:8080/servers/getServer?id=<ID>`
+- GET server	by ID	`http://127.0.0.1:8080/servers/GET?id=<ID>`
 Returns a  "server" object matching with ID.
 
-- GET servers	by Name	`http://127.0.0.1:8080/servers/getServer?name=<Nmae>`
+- GET servers	by Name	`http://127.0.0.1:8080/servers/GET?name=<Nmae>`
 Returns a list of "server" objects matching with Name.
 
-- DELETE server	`http://127.0.0.1:8080/servers/deleteServer?id=<ID>`
+- DELETE server	`http://127.0.0.1:8080/servers/DELETE?id=<ID>`
 Deletes a  "server" object matching with ID.
 
 ## RestController interface extends MongoRepository
@@ -96,18 +93,5 @@ Run the following created collection to Test and consume the APIs
 
 ### Screenshots
 
-![PutPostManIO](/screenshots/putPostManIO.PNG)
 
-![GetAllServerPostManIO](/screenshots/getAllServerPostManIO.PNG)
 
-![GetServByIdPostManIO](/screenshots/getServByIdPostManIO.PNG)
-
-![GetServByNamePostManIO](/screenshots/getServByNamePostManIO.PNG)
-
-![DelPostManIO](/screenshots/delPostManIO.PNG)
-
-### Using WebUIForms
-
-**NOTE:** *This part is Documented in Task4*
-
-**If run into problem, do not hesitate to comment or connect :smile: !**
