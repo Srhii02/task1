@@ -1,97 +1,99 @@
-# Task 1
+🚀 Task 1 – Spring Boot + MongoDB Application
 
-### Requirements
+Welcome to Task 1! 🎯
+This project demonstrates a simple Spring Boot REST API integrated with MongoDB, containerized using Docker for smooth deployment. 💻⚙️
 
-- Java
-- Spring Boot (Framework)
-- Maven
-- MongoDB
-- Docker
+🧰 Tech Stack
+Tool	Purpose
+☕ Java	Core programming language
+🌱 Spring Boot	REST API framework
+🧩 Maven	Build and dependency management
+🍃 MongoDB	NoSQL database
+🐳 Docker	Containerization
+📦 Dependencies
 
-#### Dependencies
+The following Maven dependencies are used in this project:
 
 - spring-boot-starter-web
 - spring-boot-starter-data-mongodb
 - spring-boot-starter-test
 - spring-boot-maven-plugin
 
-## Building steps
+🧑‍💻 How to Build and Run
+🪜 Step-by-Step Guide
 
-1. Open the folder `/task1` in your favourite IDE ( VS Code :heart:)
-Wait for few minutes while the IDE loads and completes necessary pre-build tasks.
+Open the project
 
-2. Run `mvn clean install`
-This will build and install the artifacts in to the local repository.
-Required jar file will be created inside `/target` folder.
+Navigate to the /task1 folder
 
-3. Run the application by clicking `Run` option or pressing `F9`
-SpringBoot application server will load and start on port `8080` of the `localhost`.
+Open it in your favorite IDE (VS Code ❤️ or IntelliJ)
 
-## Rest  API Endpoints and Resources
-Rest API Endpoint is mapped to `http://127.0.0.1:8080/tasks/`
+Build the project
 
-- PUT a server	`http://127.0.0.1:8080/servers/`
-Accept "server" object in body in json format.
+mvn clean install
 
-- GET servers	`http://127.0.0.1:8080/servers/GET`
-Returns a list of "server" objects.
 
-- GET server	by ID	`http://127.0.0.1:8080/servers/GET?id=<ID>`
-Returns a  "server" object matching with ID.
+This will compile your code, run tests, and create a JAR file inside the /target folder.
 
-- GET servers	by Name	`http://127.0.0.1:8080/servers/GET?name=<Nmae>`
-Returns a list of "server" objects matching with Name.
+Run the Application
 
-- DELETE server	`http://127.0.0.1:8080/servers/DELETE?id=<ID>`
-Deletes a  "server" object matching with ID.
+Use the IDE’s Run ▶️ option or press F9
 
-## RestController interface extends MongoRepository
+The Spring Boot server will start on:
+🌐 http://localhost:8080
 
-```java
+🌍 API Endpoints
+
+The base endpoint for the REST API is:
+
+http://127.0.0.1:8080/servers/
+
+Method	Endpoint	Description
+🟩 PUT	/servers/	Create or update a server (JSON body required)
+🟦 GET	/servers/GET	Fetch all servers
+🟦 GET	/servers/GET?id=<ID>	Fetch a single server by ID
+🟦 GET	/servers/GET?name=<Name>	Fetch servers by name
+🟥 DELETE	/servers/DELETE?id=<ID>	Delete a server by ID
+🧩 Repository Interface
+
+Your ServerRepository extends MongoRepository and provides handy methods:
+
 List<Server> findAll();
-    
-Optional<Server> findById(String Id);
-    
+Optional<Server> findById(String id);
 void createOrUpdateServer(Server server);
-    
-void deleteServerById(String Id);
-    
+void deleteServerById(String id);
 List<Server> findByName(String name);
-```
 
-## Containerizing the app
+🐳 Containerizing with Docker
 
-`Dockerfile` contains all the commands required to build the app image
+Here’s the Dockerfile used to containerize the app:
 
-`
 FROM openjdk:8-alpine
 EXPOSE 8080
 ADD target/demo.jar demo.jar
 ENTRYPOINT ["java", "-Dspring.data.mongodb.uri=mongodb://mongod:27017/servers", "-jar", "/demo.jar"]
-`
 
-1. Run the following command to build docker image
-`sudo docker build -t <container_image_name> .`
-This will create the app container image and add to you local repository.
-
-2. To Run the app from container, run the following command
-`sudo docker run -p 80:80 <container_image_name>`
-SpringBoot application server will load and start on port `8080` of the `localhost`
-You will see application logs in the terminal.
-
-**Note:** The docker-compose part is Documented in Task3
-
-## Consuming APIs
-
-### Using Postman
-
-Run the following created collection to Test and consume the APIs
-
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/5ff40fbad3968a1b28b0)
-
-**NOTE:** *The above collection is created and tested for `http://127.0.0.1:8080/servers/` endpoint*
-
-### Screenshots
+⚙️ Build Docker Image
+sudo docker build -t <image_name> .
 
 
+✅ This will create a Docker image and store it locally.
 
+▶️ Run the Container
+sudo docker run -p 8080:8080 <image_name>
+
+
+Your Spring Boot app will start on port 8080 🖥️
+Check your terminal for live logs and startup messages. 🧾
+
+💡 Note: The Docker Compose configuration is documented in Task 3.
+
+🧪 Testing APIs with Postman
+
+You can test the REST APIs easily using Postman 👇
+
+Important:
+This collection is tested for the base endpoint
+👉 http://127.0.0.1:8080/servers/
+
+📸 Screenshots
