@@ -1,0 +1,17 @@
+version: '3.8'
+services:
+  mongod:
+    image: mongo:4.4
+    container_name: mongod
+    ports:
+      - "27017:27017"
+
+  app:
+    build: .
+    container_name: kaiburr-task1-app
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mongod
+    environment:
+      - spring.data.mongodb.uri=mongodb://mongod:27017/servers

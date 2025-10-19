@@ -1,0 +1,234 @@
+{
+    "info": {
+        "_postman_id": "a8a2a1b1-9c6b-4a63-8477-b81818181818",
+        "name": "Kaiburr Task 1 API",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+        {
+            "name": "Get All Servers",
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "exec": [
+                            "pm.test(\"Status code is 200 OK\", function () {",
+                            "    pm.response.to.have.status(200);",
+                            "});",
+                            "pm.test(\"Response is an array\", function () {",
+                            "    pm.expect(pm.response.json()).to.be.an('array');",
+                            "});"
+                        ],
+                        "type": "text/javascript"
+                    }
+                }
+            ],
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "{{baseUrl}}/servers/getServer",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "servers",
+                        "getServer"
+                    ]
+                },
+                "description": "Retrieves a list of all servers."
+            },
+            "response": []
+        },
+        {
+            "name": "Get Server by ID",
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "exec": [
+                            "pm.test(\"Status code is 200 OK\", function () {",
+                            "    pm.response.to.have.status(200);",
+                            "});",
+                            "pm.test(\"Response contains a server object\", function () {",
+                            "    const response = pm.response.json();",
+                            "    pm.expect(response).to.have.property('id');",
+                            "    pm.expect(response).to.have.property('name');",
+                            "});"
+                        ],
+                        "type": "text/javascript"
+                    }
+                }
+            ],
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "{{baseUrl}}/servers/getServer?id=60c72b2f9b1e8a3f3c8e8b3a",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "servers",
+                        "getServer"
+                    ],
+                    "query": [
+                        {
+                            "key": "id",
+                            "value": "60c72b2f9b1e8a3f3c8e8b3a",
+                            "description": "Replace with a valid server ID from your database"
+                        }
+                    ]
+                },
+                "description": "Retrieves a single server by its unique ID."
+            },
+            "response": []
+        },
+        {
+            "name": "Get Server by Name",
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "exec": [
+                            "pm.test(\"Status code is 200 OK\", function () {",
+                            "    pm.response.to.have.status(200);",
+                            "});",
+                            "pm.test(\"Response is an array of servers\", function () {",
+                            "    const response = pm.response.json();",
+                            "    pm.expect(response).to.be.an('array');",
+                            "    if (response.length > 0) {",
+                            "        pm.expect(response[0]).to.have.property('name', 'my-test-server');",
+                            "    }",
+                            "});"
+                        ],
+                        "type": "text/javascript"
+                    }
+                }
+            ],
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "{{baseUrl}}/servers/getServer?name=my-test-server",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "servers",
+                        "getServer"
+                    ],
+                    "query": [
+                        {
+                            "key": "name",
+                            "value": "my-test-server",
+                            "description": "Replace with a server name to search for"
+                        }
+                    ]
+                },
+                "description": "Finds and retrieves servers by their name."
+            },
+            "response": []
+        },
+        {
+            "name": "Create Server",
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "exec": [
+                            "pm.test(\"Status code is 200 OK\", function () {",
+                            "    pm.response.to.have.status(200);",
+                            "});",
+                            "pm.test(\"Response body is correct\", function () {",
+                            "    pm.expect(pm.response.text()).to.eql(\"Server added successfully!\");",
+                            "});"
+                        ],
+                        "type": "text/javascript"
+                    }
+                }
+            ],
+            "request": {
+                "method": "PUT",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "body": {
+                    "mode": "raw",
+                    "raw": "{\n    \"name\": \"my-test-server\",\n    \"id\": \"12345\",\n    \"owner\": \"Java\",\n    \"command\": \"Spring Boot\"\n}",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    }
+                },
+                "url": {
+                    "raw": "{{baseUrl}}/servers/createServer",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "servers",
+                        "createServer"
+                    ]
+                },
+                "description": "Creates a new server. The server data is sent in the request body."
+            },
+            "response": []
+        },
+        {
+            "name": "Delete Server",
+            "event": [
+                {
+                    "listen": "test",
+                    "script": {
+                        "exec": [
+                            "pm.test(\"Status code is 200 OK\", function () {",
+                            "    pm.response.to.have.status(200);",
+                            "});",
+                            "pm.test(\"Response body indicates success or non-existence\", function () {",
+                            "    const responseText = pm.response.text();",
+                            "    const possibleResponses = [\"Server deleted successfully!\", \"Server not exists!\"];",
+                            "    pm.expect(possibleResponses).to.include(responseText);",
+                            "});"
+                        ],
+                        "type": "text/javascript"
+                    }
+                }
+            ],
+            "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                    "raw": "{{baseUrl}}/servers/deleteServer?id=12345",
+                    "host": [
+                        "{{baseUrl}}"
+                    ],
+                    "path": [
+                        "servers",
+                        "deleteServer"
+                    ],
+                    "query": [
+                        {
+                            "key": "id",
+                            "value": "12345",
+                            "description": "Replace with the ID of the server you want to delete"
+                        }
+                    ]
+                },
+                "description": "Deletes a server by its unique ID."
+            },
+            "response": []
+        }
+    ],
+    "variable": [
+        {
+            "key": "baseUrl",
+            "value": "http://localhost:8080",
+            "type": "string"
+        }
+    ]
+}
