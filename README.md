@@ -1,11 +1,6 @@
 🚀 Task 1 – Spring Boot + MongoDB Application
 
-
-<img width="2226" height="1301" alt="image" src="https://github.com/user-attachments/assets/a7a4370a-be65-4773-827f-1213e96816bf" />
-
 https://github.com/user-attachments/assets/1b93fb5e-ffd7-445b-b718-f35d168783a6
-
-
 
 Welcome to Task 1! 🎯
 This project demonstrates a simple Spring Boot REST API integrated with MongoDB, containerized using Docker for smooth deployment. 💻⚙️
@@ -104,3 +99,6 @@ This collection is tested for the base endpoint
 👉 http://127.0.0.1:8080/servers/
 
 📸 Screenshots
+
+<img width="2226" height="1301" alt="image" src="https://github.com/user-attachments/assets/a7a4370a-be65-4773-827f-1213e96816bf" />
+
