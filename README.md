@@ -2,7 +2,9 @@
 🚀 Task 1 – Spring Boot + MongoDB Application
 
 
-https://github.com/user-attachments/assets/1b93fb5e-ffd7-445b-b718-f35d168783a6
+https://github.com/user-attachments/assets/baf3df11-9e05-40e1-a854-9bb7cb28cab8
+
+
 
 
 🎯 Overview
