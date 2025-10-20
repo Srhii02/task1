@@ -11,6 +11,7 @@ This project demonstrates a Spring Boot REST API integrated with MongoDB, built 
 
 It’s a beginner-friendly full-stack backend setup to help understand how a modern Java-based microservice works — from coding to containerization! 💻⚙️
 
+
 🧰 Tech Stack
 Tool	Purpose
 ☕ Java	Core programming language
@@ -18,6 +19,9 @@ Tool	Purpose
 🧩 Maven	Build automation & dependency management
 🍃 MongoDB	NoSQL database for server records
 🐳 Docker	Containerization and deployment
+
+
+
 📦 Project Structure
 📁 task1/
 ├── 📂 src/
