@@ -155,7 +155,7 @@ Use PUT, GET, and DELETE requests as per the endpoints above.
 
 📸 Screenshots
 
-<img width="2226" height="1301" alt="image" src="https://github.com/user-attachments/assets/a7a4370a-be65-4773-827f-1213e96816bf" />
+<img width="2240" height="1173" alt="Screenshot 2025-10-20 170239" src="https://github.com/user-attachments/assets/436d83f4-9a00-43de-9d8d-ebdf5325f165" />
 
 
 🧠 Key Takeaways
