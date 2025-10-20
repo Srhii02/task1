@@ -21,24 +21,9 @@ Tool	Purpose
 🐳 Docker	Containerization and deployment
 
 
+<img width="809" height="550" alt="Screenshot 2025-10-20 163538" src="https://github.com/user-attachments/assets/2bed7722-c47b-476d-92f1-e95da8cb2b5f" />
 
-📦 Project Structure
-📁 task1/
-├── 📂 src/
-│   ├── 📂 main/
-│   │   ├── 📂 java/com/example/demo/
-│   │   │   ├── DemoApplication.java        # Main Spring Boot entry point
-│   │   │   ├── controller/ServerController.java
-│   │   │   ├── model/Server.java
-│   │   │   ├── repository/ServerRepository.java
-│   │   │   └── service/ServerService.java
-│   │   └── 📂 resources/
-│   │       ├── application.properties      # MongoDB config
-│   │       └── static/ & templates/ (optional)
-│   └── 📂 test/                            # JUnit tests
-├── 📄 pom.xml                              # Maven dependencies
-├── 📄 Dockerfile                           # Docker configuration
-└── 📄 README.md                            # Project documentation
+
 
 📚 Maven Dependencies
 
